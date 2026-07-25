@@ -18,13 +18,16 @@ const targetFiles = [
     path.join(__dirname, '..', 'public', 'privacy-policy.html'),
     path.join(__dirname, '..', 'public', 'terms.html'),
     path.join(__dirname, '..', 'public', 'index.html'),
+    path.join(__dirname, '..', 'public', 'feedback.html'),
+    path.join(__dirname, '..', 'public', 'track.html'),
+    path.join(__dirname, '..', 'attenmo-support-chatbot', 'src', 'components', 'ChatWidget.tsx'),
     path.join(__dirname, 'update-kb.js') // in the same scripts directory
 ];
 
 // Default fallback values representing the current state of the repo
 const defaultState = {
     developerName: "Shivam Kumar Mahto",
-    developerEmail: "attenmocore@gmail.com",
+    developerEmail: "attenmo.tech@gmail.com",
     whatsappCommunity: "https://chat.whatsapp.com/GDOjvKK7nxGFvQ7NSrQNiG",
     instagramLink: "https://www.instagram.com/theattenmo/",
     instagramHandle: "@theattenmo",

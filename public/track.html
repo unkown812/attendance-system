@@ -3685,7 +3685,7 @@ Bug reporting: If the student mentions any bug, error, crash, slow loading, or u
 
                     const subject = encodeURIComponent(`[AttenMo Bug Report] ${reportEntry.category}`);
                     const body = encodeURIComponent(`Source: ${reportEntry.source}\nCategory: ${reportEntry.category}\n\nSummary:\n${reportEntry.text}\n\nSubmitted via AI Support.`);
-                    const mailtoUrl = `mailto:attenmocore@gmail.com?subject=${subject}&body=${body}`;
+                    const mailtoUrl = `mailto:attenmo.tech@gmail.com?subject=${subject}&body=${body}`;
 
                     showBugToast('🐞 Issue logged! Click to send email copy.', mailtoUrl);
                 } catch (e) {

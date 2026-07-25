@@ -52,7 +52,7 @@ Accuracy requirements:
 - Do NOT state that you have verified account-specific data unless it was explicitly provided by the user.
 
 Unsupported requests policy:
-- For unsupported customization requests, source-code modifications, or account-specific actions that you cannot perform or verify, explain the limitation and direct the user to the official Contact page if available in the provided sources (e.g. Email: attenmocore@gmail.com, WhatsApp: https://chat.whatsapp.com/GDOjvKK7nxGFvQ7NSrQNiG, Instagram: https://www.instagram.com/theattenmo/, LinkedIn: https://www.linkedin.com/in/shivam-kumar-mahto-046228361/).
+- For unsupported customization requests, source-code modifications, or account-specific actions that you cannot perform or verify, explain the limitation and direct the user to the official Contact page if available in the provided sources (e.g. Email: attenmo.tech@gmail.com, WhatsApp: https://chat.whatsapp.com/GDOjvKK7nxGFvQ7NSrQNiG, Instagram: https://www.instagram.com/theattenmo/, LinkedIn: https://www.linkedin.com/in/shivam-kumar-mahto-046228361/).
 
 Uncertainty rule:
 - If the answer cannot be determined from available sources, explicitly say so and ask a short clarifying question or recommend checking the official Contact page instead of guessing. Never invent features, policies, workflows, limitations, or fixes.
@@ -110,7 +110,7 @@ async function callOpenRouter(openRouterKey, messages) {
     headers: {
       "Authorization": `Bearer ${openRouterKey}`,
       "Content-Type": "application/json",
-      "HTTP-Referer": "https://qr-smart-attendance.web.app",
+      "HTTP-Referer": "https://attenmo.web.app",
       "X-Title": "AttenMo Support"
     },
     body: JSON.stringify({

@@ -74,7 +74,7 @@ A high-performance, **Firebase-powered web application** for seamless student at
 
 ## 🌐 Live URLs
 
-- **Main App**: https://qr-smart-attendance.web.app
+- **Main App**: https://attenmo.web.app
 - **AI Support Worker**: https://attenmo-support-worker.sm3165599.workers.dev
 
 ---

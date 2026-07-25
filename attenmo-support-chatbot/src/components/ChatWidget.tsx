@@ -146,7 +146,7 @@ export default function ChatWidget({
   };
 
   const handleEscalateEmail = () => {
-    const supportEmail = "attenmocore@gmail.com";
+    const supportEmail = "attenmo.tech@gmail.com";
     const subject = encodeURIComponent("[AttenMo Support] Help / Escalation Request");
     
     // Find latest user query and latest bot reply
@@ -477,7 +477,7 @@ export default function ChatWidget({
             {/* Brand watermark or helper info */}
             <div className="text-center pb-2 opacity-50 select-none">
               <p className="text-[10.5px] text-slate-400 font-mono">
-                Support restricted to Allowed Origin &bull; qr-smart-attendance
+                Support restricted to Allowed Origin &bull; attenmo.web.app
               </p>
             </div>
 

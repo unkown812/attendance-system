@@ -504,7 +504,7 @@ function copyQRLink() {
         showToast("❌ No QR generated yet");
         return;
     }
-    const link = `https://qr-smart-attendance.web.app/attendance.html?id=${currentQRCode}`;
+    const link = `https://attenmo.web.app/attendance.html?id=${currentQRCode}`;
     navigator.clipboard.writeText(link).then(() => {
         showToast("📋 Link copied to clipboard!");
     });

@@ -9,7 +9,7 @@ Generated automatically from the repository manual and documentation.
 - **Creator Role**: Sole Creator, Developer, and Maintainer of the AttenMo application.
 - **Creator Details**: Shivam Kumar Mahto is the developer who created AttenMo to digitize and automate student attendance tracking using QR codes and geofencing. He designed, implemented, and built the entire application using HTML5, CSS3, vanilla JavaScript, and Google Firebase.
 - **Contact Channels**:
-  - **Email**: attenmocore@gmail.com
+  - **Email**: attenmo.tech@gmail.com
   - **WhatsApp Community**: https://chat.whatsapp.com/GDOjvKK7nxGFvQ7NSrQNiG
   - **Instagram**: https://www.instagram.com/theattenmo/ (@theattenmo)
   - **LinkedIn**: https://www.linkedin.com/in/shivam-kumar-mahto-046228361/
@@ -18,7 +18,7 @@ Generated automatically from the repository manual and documentation.
 ## Product & System Overview
 
 AttenMo is a high-performance, Firebase-powered web and mobile application for QR-based student attendance.
-- **Host Web URL**: \`https://qr-smart-attendance.web.app\`
+- **Host Web URL**: \`https://attenmo.web.app\`
 - **Database Backend**: Firebase Realtime Database.
 - **Authentication**: Firebase Authentication (Google OAuth & Firebase Phone Auth).
 - **PWA Capabilities**: Service worker handling offline assets and caching.

@@ -205,7 +205,7 @@ We take security issues seriously. If you discover a vulnerability in AttenMo, p
 
 **Contact the developer privately:**
 
-- 📧 **Email**: attenmocore@gmail.com *(preferred for sensitive disclosures)*
+- 📧 **Email**: attenmo.tech@gmail.com *(preferred for sensitive disclosures)*
 - 💬 **WhatsApp Community**: [AttenMo Community](https://chat.whatsapp.com/GDOjvKK7nxGFvQ7NSrQNiG)
 - 💼 **LinkedIn**: [Shivam Kumar Mahto](https://www.linkedin.com/in/shivam-kumar-mahto-046228361/)
 

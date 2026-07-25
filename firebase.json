@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "site": "qr-smart-attendance",
+      "site": "attenmo",
       "public": "public",
       "ignore": [
         "firebase.json",

@@ -4,7 +4,7 @@
   "webDir": "public",
   "bundledWebRuntime": false,
   "server": {
-    "hostname": "qr-smart-attendance.web.app",
+    "hostname": "attenmo.web.app",
     "androidScheme": "https",
     "allowNavigation": [
       "docs.google.com",
