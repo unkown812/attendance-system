@@ -6,26 +6,65 @@
     <meta name="description" content="Your AttenMo attendance submission status — instant confirmation of QR scan, pending approvals, and location verification.">
     <title>Attendance Status | AttenMo</title>
     <link rel="icon" type="image/webp" href="logo.webp">
+    <script src="assets/js/theme.js" defer></script>
     <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: white;
+            --text-color: #1a202c;
+            --text-muted: #4a5568;
+            --student-info-bg: #f8fafc;
+            --student-info-warning-bg: #fef3c7;
+            --student-info-warning-text: #92400e;
+            --border-color: #e2e8f0;
+            --note-bg: #eff6ff;
+            --note-text: #1e40af;
+            --note-warning-bg: #fef3c7;
+            --note-warning-text: #92400e;
+            --info-label: #718096;
+            --info-value: #1a202c;
+        }
+
+        body.dark-mode {
+            --bg-gradient: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --student-info-bg: #0f172a;
+            --student-info-warning-bg: rgba(245, 158, 11, 0.15);
+            --student-info-warning-text: #f59e0b;
+            --border-color: #334155;
+            --note-bg: rgba(99, 102, 241, 0.08);
+            --note-text: #818cf8;
+            --note-warning-bg: rgba(245, 158, 11, 0.15);
+            --note-warning-text: #f59e0b;
+            --info-label: #94a3b8;
+            --info-value: #f8fafc;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--bg-gradient);
+            color: var(--text-color);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            transition: background 0.3s ease, color 0.3s ease;
         }
         .success-container {
             max-width: 500px;
             width: 100%;
-            background: white;
+            background: var(--card-bg);
             border-radius: 24px;
             padding: 48px 32px;
             text-align: center;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             animation: slideUp 0.5s ease-out;
+            position: relative;
+            transition: background-color 0.3s ease;
         }
         @keyframes slideUp {
             from {
@@ -97,22 +136,34 @@
         }
         .success-message {
             font-size: 18px;
-            color: #4a5568;
+            color: var(--text-muted);
             margin-bottom: 32px;
             line-height: 1.6;
             animation: fadeIn 0.5s ease-out 0.6s both;
         }
         .student-info {
-            background: #f8fafc;
+            background: var(--student-info-bg);
             padding: 20px;
             border-radius: 12px;
             margin-bottom: 32px;
             border-left: 4px solid #10b981;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
             animation: fadeIn 0.5s ease-out 0.8s both;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         .student-info.warning-info {
             border-left-color: #f59e0b;
-            background: #fef3c7;
+            background: var(--student-info-warning-bg);
+            color: var(--student-info-warning-text);
+        }
+        .student-info.warning-info .info-label {
+            color: var(--student-info-warning-text);
+            opacity: 0.8;
+        }
+        .student-info.warning-info .info-value {
+            color: var(--student-info-warning-text);
         }
         .info-row {
             display: flex;
@@ -124,15 +175,18 @@
             margin-bottom: 0;
         }
         .info-label {
-            color: #718096;
+            color: var(--info-label);
             font-weight: 600;
         }
         .info-value {
-            color: #1a202c;
+            color: var(--info-value);
             font-weight: 700;
         }
         .info-value.late {
             color: #dc2626;
+        }
+        body.dark-mode .info-value.late {
+            color: #f87171;
         }
         .button-group {
             display: flex;
@@ -171,16 +225,16 @@
         .note {
             margin-top: 0;
             padding: 16px;
-            background: #eff6ff;
+            background: var(--note-bg);
             border-radius: 8px;
-            color: #1e40af;
+            color: var(--note-text);
             font-size: 14px;
             line-height: 1.6;
             animation: fadeIn 0.5s ease-out 1.2s both;
         }
         .note.warning-note {
-            background: #fef3c7;
-            color: #92400e;
+            background: var(--note-warning-bg);
+            color: var(--note-warning-text);
         }
         .late-badge {
             display: inline-block;
@@ -193,8 +247,35 @@
             margin-bottom: 16px;
             animation: fadeIn 0.5s ease-out 0.5s both;
         }
+        body.dark-mode .late-badge {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+        }
+        .theme-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s ease;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+        .theme-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
         @media (max-width: 768px) {
-            .success-container { padding: 32px 24px; }
+            .success-container { padding: 48px 24px 32px; }
             h1 { font-size: 24px; }
             .success-message { font-size: 16px; }
             .button-group {
@@ -204,7 +285,35 @@
     </style>
 </head>
 <body>
+    <script>
+        (function () {
+            var pref = localStorage.getItem('themePreference');
+            var isDark = false;
+            if (pref === 'dark') {
+                isDark = true;
+            } else if (pref === 'light') {
+                isDark = false;
+            } else if (pref === 'default') {
+                isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } else {
+                var saved = localStorage.getItem('darkMode');
+                if (saved !== null) {
+                    isDark = saved === 'true';
+                    localStorage.setItem('themePreference', isDark ? 'dark' : 'light');
+                } else {
+                    isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    localStorage.setItem('themePreference', 'default');
+                }
+            }
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        })();
+    </script>
     <div class="success-container">
+        <button id="theme-toggle-btn" class="theme-btn" onclick="toggleDarkMode()" aria-label="Toggle theme">🌙</button>
         <div class="success-icon" id="status-icon">
             <div class="checkmark"></div>
         </div>

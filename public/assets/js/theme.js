@@ -36,9 +36,16 @@ function applyTheme() {
         }
     }
 
-    // Update all .theme-btn icon buttons (login-screen, setup-screen, track.html)
+    // Update .theme-btn icon buttons (login-screen, setup-screen, track.html etc.)
+    // Skip pill/slider style buttons — their icon is driven by CSS ::after, not innerHTML.
     const appBtns = document.querySelectorAll('.theme-btn');
     appBtns.forEach(btn => {
+        // Pill toggles use CSS ::after for the knob; setting innerHTML breaks them.
+        // They are identified by having no data-style or data-style="pill".
+        const style = btn.dataset.style;
+        if (style === 'pill' || btn.classList.contains('navbar-theme-btn') || btn.classList.contains('navbar-theme-btn-mobile')) {
+            return; // CSS handles the icon via ::after — skip innerHTML injection
+        }
         btn.innerHTML = isDark ? '☀️' : '🌙';
     });
 }

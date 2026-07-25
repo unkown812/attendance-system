@@ -9,6 +9,17 @@
     <link rel="icon" type="image/webp" href="logo.webp">
     <style>
         :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --text-color: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+        }
+
+        body.dark-mode {
             --bg-color: #0f172a;
             --card-bg: #1e293b;
             --primary-color: #6366f1;
@@ -43,6 +54,32 @@
             width: 100%;
             max-width: 440px;
             padding: 20px;
+            position: relative;
+        }
+
+        .theme-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s ease;
+            position: absolute;
+            top: -24px;
+            right: 20px;
+            z-index: 10;
+        }
+
+        .theme-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
         }
 
         .card {
@@ -202,7 +239,7 @@
         .token-area {
             width: 100%;
             height: 80px;
-            background: #0f172a;
+            background: var(--bg-color);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 10px;
@@ -248,9 +285,39 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
     <script src="assets/js/firebase-config.js?v=6"></script>
+    <script src="assets/js/theme.js" defer></script>
 </head>
 <body>
+    <script>
+        (function () {
+            var pref = localStorage.getItem('themePreference');
+            var isDark = false;
+            if (pref === 'dark') {
+                isDark = true;
+            } else if (pref === 'light') {
+                isDark = false;
+            } else if (pref === 'default') {
+                isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } else {
+                // Migration path from legacy darkMode key
+                var saved = localStorage.getItem('darkMode');
+                if (saved !== null) {
+                    isDark = saved === 'true';
+                    localStorage.setItem('themePreference', isDark ? 'dark' : 'light');
+                } else {
+                    isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    localStorage.setItem('themePreference', 'default');
+                }
+            }
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        })();
+    </script>
     <div class="container">
+        <button class="theme-btn" onclick="toggleDarkMode()" aria-label="Toggle theme">🌙</button>
         <div class="card">
             <div class="logo-wrap">
                 <img src="logo.webp" alt="AttenMo Logo" class="logo" width="56" height="56" fetchpriority="high" decoding="async" onerror="this.src='logo-opt.png'">

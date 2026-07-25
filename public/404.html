@@ -1,33 +1,244 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page Not Found</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page not found — AttenMo. The page you're looking for doesn't exist.">
+    <title>404 — Page Not Found | AttenMo</title>
+    <link rel="icon" type="image/webp" href="logo.webp">
+    <script src="assets/js/theme.js" defer></script>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: white;
+            --text-color: #1a202c;
+            --text-muted: #4a5568;
+            --border-color: #e2e8f0;
+            --badge-bg: rgba(102, 126, 234, 0.1);
+            --badge-text: #667eea;
+        }
+        body.dark-mode {
+            --bg-gradient: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --badge-bg: rgba(99, 102, 241, 0.15);
+            --badge-text: #818cf8;
+        }
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px 16px; border-radius: 3px; }
-      #message h3 { color: #888; font-weight: normal; font-size: 16px; margin: 16px 0 12px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 480px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 48px 32px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.5s ease-out;
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .theme-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s ease;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+        .theme-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .error-icon {
+            font-size: 72px;
+            line-height: 1;
+            margin-bottom: 16px;
+            animation: bounce 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes bounce {
+            0%   { opacity: 0; transform: scale(0.5); }
+            70%  { transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            animation: fadeIn 0.5s ease-out 0.4s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            animation: fadeIn 0.5s ease-out 0.6s both;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            animation: fadeIn 0.5s ease-out 0.8s both;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            border: 1px solid var(--border-color);
+        }
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 28px;
+            animation: fadeIn 0.5s ease-out 1s both;
+        }
+        .logo-wrap img {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+        }
+        .logo-wrap span {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 48px 20px 28px; }
+            h1 { font-size: 22px; }
+            .btn-group { flex-direction: column; }
+        }
     </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>404</h2>
-      <h1>Page Not Found</h1>
-      <p>The specified file was not found on this website. Please check the URL for mistakes and try again.</p>
-      <h3>Why am I seeing this?</h3>
-      <p>This page was generated by the Firebase Command-Line Interface. To modify it, edit the <code>404.html</code> file in your project's configured <code>public</code> directory.</p>
+</head>
+<body>
+    <script>
+        (function () {
+            var pref = localStorage.getItem('themePreference');
+            var isDark = false;
+            if (pref === 'dark') {
+                isDark = true;
+            } else if (pref === 'light') {
+                isDark = false;
+            } else if (pref === 'default') {
+                isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } else {
+                var saved = localStorage.getItem('darkMode');
+                if (saved !== null) {
+                    isDark = saved === 'true';
+                    localStorage.setItem('themePreference', isDark ? 'dark' : 'light');
+                } else {
+                    isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    localStorage.setItem('themePreference', 'default');
+                }
+            }
+            if (isDark) document.body.classList.add('dark-mode');
+        })();
+    </script>
+
+    <div class="container">
+        <button class="theme-btn" id="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle theme">🌙</button>
+
+        <div class="error-icon">🔍</div>
+        <div class="badge">404 Error</div>
+
+        <h1>Page Not Found</h1>
+        <p>Looks like this page took an unexcused absence! The URL you visited doesn't exist or has been moved.</p>
+
+        <div class="btn-group">
+            <a href="index.html" class="btn btn-primary">🏠 Go Home</a>
+            <button class="btn btn-secondary" onclick="history.back()">← Go Back</button>
+        </div>
+
+        <div class="logo-wrap">
+            <img src="logo.webp" alt="AttenMo" onerror="this.src='logo-opt.png'">
+            <span>AttenMo — Smart Attendance</span>
+        </div>
     </div>
-  </body>
+</body>
 </html>
