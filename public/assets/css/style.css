@@ -995,6 +995,12 @@
             max-width: 100% !important;
         }
 
+        /* Expand container when login screen is active on desktop */
+        .container:has(#login-screen.active) {
+            max-width: 1300px;
+            padding: 0 24px;
+        }
+
         @media (max-width: 768px) {
             .container {
                 max-width: 550px;
@@ -4141,7 +4147,7 @@
    ===================================================== */
 #login-screen {
     width: 100%;
-    max-width: 980px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0;
 }
