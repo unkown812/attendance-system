@@ -999,6 +999,7 @@
         .container:has(#login-screen.active) {
             max-width: 1300px;
             padding: 0 24px;
+            margin-top: 76px;
         }
 
         @media (max-width: 768px) {
@@ -1006,6 +1007,9 @@
                 max-width: 550px;
                 margin-top: 20px;
                 padding: 0 16px;
+            }
+            .container:has(#login-screen.active) {
+                margin-top: 72px;
             }
 
             .landing-links {
@@ -1228,19 +1232,8 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
         }
 
-        /* Top bar pinned above the login card */
+        /* Top bar pinned above screens - full viewport width */
         .login-screen-topbar {
-            width: 100%;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 8px;
-        }
-
-        /* Workspace screen topbar: break out of 820px max-width, go full viewport */
-        #workspace-screen .login-screen-topbar {
             position: fixed;
             top: 0;
             left: 0;
@@ -1254,6 +1247,9 @@
             padding: 12px 24px;
             margin-bottom: 0;
             box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
 
