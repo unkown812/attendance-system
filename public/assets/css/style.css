@@ -987,19 +987,13 @@
             transition: all 0.3s ease;
         }
 
-        /* Remove container spacing when workspace screen is active */
-        .container:has(#workspace-screen.active) {
+        /* Remove container spacing when workspace or login screen is active */
+        .container:has(#workspace-screen.active),
+        .container:has(#login-screen.active) {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
             padding: 0 !important;
             max-width: 100% !important;
-        }
-
-        /* Expand container when login screen is active on desktop */
-        .container:has(#login-screen.active) {
-            max-width: 1300px;
-            padding: 0 24px;
-            margin-top: 76px;
         }
 
         @media (max-width: 768px) {
@@ -1007,9 +1001,6 @@
                 max-width: 550px;
                 margin-top: 20px;
                 padding: 0 16px;
-            }
-            .container:has(#login-screen.active) {
-                margin-top: 72px;
             }
 
             .landing-links {
@@ -4156,9 +4147,14 @@
    ===================================================== */
 #login-screen {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
+    max-width: 100%;
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 24px;
+    box-sizing: border-box;
 }
 
 #login-screen .login-card-split {
