@@ -1239,6 +1239,23 @@
             margin-bottom: 8px;
         }
 
+        /* Workspace screen topbar: break out of 820px max-width, go full viewport */
+        #workspace-screen .login-screen-topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 999;
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 24px;
+            margin-bottom: 0;
+            box-sizing: border-box;
+        }
+
 
         .logo {
             width: 100px;
@@ -2876,7 +2893,7 @@
             width: 100%;
             max-width: 820px;
             box-sizing: border-box;
-            padding: 0;
+            padding: 56px 0 0;
             margin: 0 auto;
         }
         .workspace-shell {
