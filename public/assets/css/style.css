@@ -4162,6 +4162,10 @@
    SPLIT PANEL LOGIN CARD DESIGN (Matching Image 2)
    ===================================================== */
 #login-screen {
+    display: none;
+}
+
+#login-screen.active {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
