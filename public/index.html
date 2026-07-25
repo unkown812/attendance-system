@@ -536,95 +536,159 @@
 
         <!-- LOGIN SCREEN (CR only) -->
         <div id="login-screen" class="screen">
-            <div class="card">
-                <div class="login-top-bar"
-                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; position: relative; z-index: 10;">
-                    <button class="info-btn" title="Back to workspace" onclick="showScreen('workspace-screen')"
-                        style="font-size: 16px; font-weight: 700;">←</button>
-                    <button class="theme-btn" onclick="toggleDarkMode()"></button>
-                </div>
-                <div class="header">
-                    <img src="logo.webp" alt="AttenMo Logo" class="logo" onclick="openLogoPopup()" loading="lazy"
-                        width="200" height="200">
-                    <h1>🏫 <span class="brand-text">CR Dashboard</span></h1>
-                    <p>Sign in to manage your class attendance</p>
-                </div>
-
-                <!-- Tabs to switch between Google and Phone Login -->
-                <div class="login-tabs">
-                    <button class="tab-btn active" id="login-tab-google" onclick="toggleLoginMode('google')">Google
-                        Login</button>
-                    <button class="tab-btn" id="login-tab-phone" onclick="toggleLoginMode('phone')">Phone Login</button>
-                </div>
-
-                <!-- Google Login Section -->
-                <div class="google-login-container login-section-container">
-                    <div class="login-info-banner">
-                        👋 <strong>Welcome back!</strong><br>Sign in with your Google account to access your class
-                        dashboard.
+            <div class="login-card-split">
+                <!-- Brand Panel (Left Side) -->
+                <div class="auth-brand-panel">
+                    <div>
+                        <div class="auth-brand-logo-row">
+                            <img src="logo.webp" alt="AttenMo" class="auth-brand-logo" onerror="this.src='logo-opt.png'">
+                            <div class="auth-brand-title">AttenMo</div>
+                        </div>
+                        <h2 class="auth-brand-tagline">Smart Attendance.<br><span class="highlight-text">Effortless Control.</span></h2>
+                        <div class="auth-brand-features">CR DASHBOARD &bull; ROSTER &bull; TIMETABLE</div>
+                        <p class="auth-brand-description">Manage your classroom attendance, exports, and sync seamlessly in one place.</p>
                     </div>
-                    <button class="btn btn-google" onclick="signInWithGoogle()">
-                        <svg class="google-icon" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"
-                                fill="#4285F4" />
-                            <path
-                                d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A9 9 0 009 18z"
-                                fill="#34A853" />
-                            <path
-                                d="M3.964 10.706A5.41 5.41 0 013.682 9c0-.594.102-1.17.282-1.706V4.962H.957A8.993 8.993 0 000 9c0 1.488.365 2.9 1.008 4.148l2.956-2.442z"
-                                fill="#FBBC05" />
-                            <path
-                                d="M9 3.58c1.32 0 2.505.454 3.436 1.346l2.582-2.58C13.463.896 11.426 0 9 0A9 9 0 00.957 4.962l2.956 2.442c.708-2.127 2.692-3.711 5.036-3.711z"
-                                fill="#EA4335" />
+                    <div class="auth-brand-mascot-wrap">
+                        <svg class="auth-brand-mascot" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Phone body -->
+                            <rect x="55" y="20" width="90" height="155" rx="14" fill="url(#phoneFill)" stroke="url(#phoneStroke)" stroke-width="2"/>
+                            <rect x="63" y="35" width="74" height="120" rx="4" fill="url(#screenFill)"/>
+                            <!-- Notch -->
+                            <rect x="85" y="24" width="30" height="6" rx="3" fill="rgba(0,0,0,0.2)"/>
+                            <!-- QR Code / Classroom grid -->
+                            <rect x="75" y="52" width="14" height="14" rx="2" fill="#0284c7"/>
+                            <rect x="93" y="52" width="14" height="14" rx="2" fill="#0284c7"/>
+                            <rect x="111" y="52" width="14" height="14" rx="2" fill="#0284c7"/>
+                            <rect x="75" y="70" width="14" height="14" rx="2" fill="#0284c7"/>
+                            <rect x="93" y="70" width="14" height="14" rx="2" fill="rgba(2,132,199,0.4)"/>
+                            <rect x="111" y="70" width="14" height="14" rx="2" fill="#0284c7"/>
+                            <rect x="75" y="88" width="14" height="14" rx="2" fill="#0284c7"/>
+                            <rect x="93" y="88" width="14" height="14" rx="2" fill="#0284c7"/>
+                            <rect x="111" y="88" width="14" height="14" rx="2" fill="rgba(2,132,199,0.4)"/>
+                            <!-- Status lines -->
+                            <rect x="75" y="112" width="50" height="5" rx="2.5" fill="rgba(2,132,199,0.3)"/>
+                            <rect x="75" y="122" width="36" height="5" rx="2.5" fill="rgba(2,132,199,0.2)"/>
+                            <rect x="75" y="132" width="44" height="5" rx="2.5" fill="rgba(2,132,199,0.15)"/>
+                            <!-- Home indicator -->
+                            <rect x="88" y="162" width="24" height="4" rx="2" fill="rgba(0,0,0,0.15)"/>
+
+                            <!-- Checkmark shield -->
+                            <g transform="translate(135, 105)">
+                                <path d="M0 12C0 6 12 0 24 0C36 0 48 6 48 12V28C48 40 24 50 24 50C24 50 0 40 0 28V12Z" fill="url(#shieldFill)" opacity="0.95"/>
+                                <path d="M14 24L21 31L35 17" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+
+                            <defs>
+                                <linearGradient id="phoneFill" x1="55" y1="20" x2="145" y2="175" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#ffffff" />
+                                    <stop offset="1" stop-color="#f1f5f9" />
+                                </linearGradient>
+                                <linearGradient id="phoneStroke" x1="55" y1="20" x2="145" y2="175" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#cbd5e1" />
+                                    <stop offset="1" stop-color="#94a3b8" />
+                                </linearGradient>
+                                <linearGradient id="screenFill" x1="63" y1="35" x2="137" y2="155" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#f8fafc" />
+                                    <stop offset="1" stop-color="#e2e8f0" />
+                                </linearGradient>
+                                <linearGradient id="shieldFill" x1="0" y1="0" x2="48" y2="50" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#10b981" />
+                                    <stop offset="1" stop-color="#059669" />
+                                </linearGradient>
+                            </defs>
                         </svg>
-                        Continue with Google
-                    </button>
-                    <p class="google-login-note">Secure, fast, and no password to remember!</p>
+                    </div>
                 </div>
 
-                <!-- Phone Login Section -->
-                <div id="phone-login-container" class="login-section-container" style="display: none;">
-                    <div class="login-info-banner phone-banner">
-                        📱 <strong>Sign in with Phone</strong><br>Enter your registered mobile number to receive an OTP.
+                <!-- Form Panel (Right Side) -->
+                <div class="auth-form-panel">
+                    <div class="login-top-bar"
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; position: relative; z-index: 10;">
+                        <button class="info-btn" title="Back to workspace" onclick="showScreen('workspace-screen')"
+                            style="font-size: 16px; font-weight: 700;">←</button>
+                        <button class="theme-btn" onclick="toggleDarkMode()"></button>
                     </div>
-                    <div class="warning-banner">
-                        ⚠️ <strong>Service under Setup:</strong> Real SMS OTP is currently offline. Use Google login or
-                        registered test credentials.
+                    <div class="header">
+                        <h1>🏫 <span class="brand-text">CR Dashboard</span></h1>
+                        <p>Sign in to manage your class attendance</p>
                     </div>
-                    <div id="recaptcha-container"></div>
-                    <div id="phone-input-section">
-                        <div class="form-group">
-                            <label>Mobile Number</label>
-                            <div class="input-prefix-container">
-                                <span class="input-prefix">+91</span>
-                                <input type="tel" id="phone-login-input" placeholder="Enter 10-digit number"
-                                    maxlength="10">
+
+                    <!-- Tabs to switch between Google and Phone Login -->
+                    <div class="login-tabs">
+                        <button class="tab-btn active" id="login-tab-google" onclick="toggleLoginMode('google')">Google
+                            Login</button>
+                        <button class="tab-btn" id="login-tab-phone" onclick="toggleLoginMode('phone')">Phone Login</button>
+                    </div>
+
+                    <!-- Google Login Section -->
+                    <div class="google-login-container login-section-container">
+                        <div class="login-info-banner">
+                            👋 <strong>Welcome back!</strong><br>Sign in with your Google account to access your class
+                            dashboard.
+                        </div>
+                        <button class="btn btn-google" onclick="signInWithGoogle()">
+                            <svg class="google-icon" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"
+                                    fill="#4285F4" />
+                                <path
+                                    d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A9 9 0 009 18z"
+                                    fill="#34A853" />
+                                <path
+                                    d="M3.964 10.706A5.41 5.41 0 013.682 9c0-.594.102-1.17.282-1.706V4.962H.957A8.993 8.993 0 000 9c0 1.488.365 2.9 1.008 4.148l2.956-2.442z"
+                                    fill="#FBBC05" />
+                                <path
+                                    d="M9 3.58c1.32 0 2.505.454 3.436 1.346l2.582-2.58C13.463.896 11.426 0 9 0A9 9 0 00.957 4.962l2.956 2.442c.708-2.127 2.692-3.711 5.036-3.711z"
+                                    fill="#EA4335" />
+                            </svg>
+                            Continue with Google
+                        </button>
+                        <p class="google-login-note">Secure, fast, and no password to remember!</p>
+                    </div>
+
+                    <!-- Phone Login Section -->
+                    <div id="phone-login-container" class="login-section-container" style="display: none;">
+                        <div class="login-info-banner phone-banner">
+                            📱 <strong>Sign in with Phone</strong><br>Enter your registered mobile number to receive an OTP.
+                        </div>
+                        <div class="warning-banner">
+                            ⚠️ <strong>Service under Setup:</strong> Real SMS OTP is currently offline. Use Google login or
+                            registered test credentials.
+                        </div>
+                        <div id="recaptcha-container"></div>
+                        <div id="phone-input-section">
+                            <div class="form-group">
+                                <label>Mobile Number</label>
+                                <div class="input-prefix-container">
+                                    <span class="input-prefix">+91</span>
+                                    <input type="tel" id="phone-login-input" placeholder="Enter 10-digit number"
+                                        maxlength="10">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" onclick="sendPhoneLoginOTP()">Send OTP</button>
+                        </div>
+                        <div id="otp-input-section" style="display: none;">
+                            <div class="form-group">
+                                <label>Enter 6-Digit OTP</label>
+                                <input type="text" id="otp-login-input" placeholder="e.g. 123456" maxlength="6"
+                                    style="text-align: center; letter-spacing: 4px;">
+                            </div>
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button class="btn btn-secondary" onclick="resetPhoneLoginUI()">Edit Number</button>
+                                <button class="btn btn-success" onclick="verifyPhoneLoginOTP()">Verify &amp; Login</button>
                             </div>
                         </div>
-                        <button class="btn btn-primary" onclick="sendPhoneLoginOTP()">Send OTP</button>
-                    </div>
-                    <div id="otp-input-section" style="display: none;">
-                        <div class="form-group">
-                            <label>Enter 6-Digit OTP</label>
-                            <input type="text" id="otp-login-input" placeholder="e.g. 123456" maxlength="6"
-                                style="text-align: center; letter-spacing: 4px;">
-                        </div>
-                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                            <button class="btn btn-secondary" onclick="resetPhoneLoginUI()">Edit Number</button>
-                            <button class="btn btn-success" onclick="verifyPhoneLoginOTP()">Verify &amp; Login</button>
+                        <div class="recaptcha-disclosure"
+                            style="font-size: 10px; color: var(--text-muted); margin-top: 15px; text-align: center; line-height: 1.4; opacity: 0.8;">
+                            Protected by reCAPTCHA — <a href="https://policies.google.com/privacy" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">Privacy</a> &amp; <a
+                                href="https://policies.google.com/terms" target="_blank"
+                                style="color: var(--primary-color); text-decoration: underline;">Terms</a> apply.
                         </div>
                     </div>
-                    <div class="recaptcha-disclosure"
-                        style="font-size: 10px; color: var(--text-muted); margin-top: 15px; text-align: center; line-height: 1.4; opacity: 0.8;">
-                        Protected by reCAPTCHA — <a href="https://policies.google.com/privacy" target="_blank"
-                            style="color: var(--primary-color); text-decoration: underline;">Privacy</a> &amp; <a
-                            href="https://policies.google.com/terms" target="_blank"
-                            style="color: var(--primary-color); text-decoration: underline;">Terms</a> apply.
-                    </div>
+                    <div id="login-message"></div>
                 </div>
-                <div id="login-message"></div>
             </div>
         </div>
 
@@ -3233,10 +3297,10 @@ Do not wrap it in markdown block. Do not include any explanation or other text.`
             // Use a flat array with start/end keys — consistent with all app internals.
             if (parsedSetupTimetable && parsedSetupTimetable.length > 0) {
                 classSetupData.timetable = parsedSetupTimetable.map(slot => ({
-                    day:     slot.day,
+                    day: slot.day,
                     subject: (slot.subject || '').toUpperCase().trim(),
-                    start:   slot.start || slot.startTime || '',
-                    end:     slot.end   || slot.endTime   || ''
+                    start: slot.start || slot.startTime || '',
+                    end: slot.end || slot.endTime || ''
                 }));
             }
 
@@ -3401,10 +3465,10 @@ Do not wrap it in markdown block. Do not include any explanation or other text.`
                 return [];
             }
             return arr.filter(Boolean).map(slot => ({
-                day:     slot.day || '',
+                day: slot.day || '',
                 subject: slot.subject || '',
-                start:   slot.start || slot.startTime || '',
-                end:     slot.end   || slot.endTime   || ''
+                start: slot.start || slot.startTime || '',
+                end: slot.end || slot.endTime || ''
             })).filter(s => s.day && s.subject);
         }
 
@@ -3428,8 +3492,8 @@ Do not wrap it in markdown block. Do not include any explanation or other text.`
                         // User's explicit local choice is NEVER overridden by cloud on reload.
                         const currentLocalPref = localStorage.getItem('themePreference');
                         const cloudPref = (userData.settings && userData.settings.themePreference) ||
-                                          (userData.settings && userData.settings.darkMode !== undefined ?
-                                            (userData.settings.darkMode ? 'dark' : 'light') : null);
+                            (userData.settings && userData.settings.darkMode !== undefined ?
+                                (userData.settings.darkMode ? 'dark' : 'light') : null);
 
                         if (!currentLocalPref && cloudPref) {
                             // First time on this device — initialize from cloud
