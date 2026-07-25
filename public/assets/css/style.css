@@ -1233,6 +1233,9 @@
             padding: 12px 20px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 8px;
         }
 
 
