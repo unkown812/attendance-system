@@ -362,6 +362,10 @@
             border-radius: 10px;
             border-bottom: 0;
             margin-top: 6px;
+            display: block;
+            width: 100%;
+            padding: 13px 0;
+            box-sizing: border-box;
         }
 
         .landing-hero {
