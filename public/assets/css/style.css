@@ -3774,10 +3774,13 @@
             flex-shrink: 0;
         }
 
-        /* Hide footer in native app or when dashboard is active */
+        /* Hide footer in native app, when dashboard is active, or when login-locked state is active */
         .is-native-app .app-footer,
         body.app-layout-active .app-footer,
-        body.native-login-active .app-footer {
+        body.native-login-active .app-footer,
+        .landing-page.login-locked ~ .app-footer,
+        #landing-page.login-locked ~ .app-footer,
+        body:has(.landing-page.login-locked) .app-footer {
             display: none !important;
         }
 
@@ -4296,24 +4299,86 @@ body.dark-mode #login-screen .auth-brand-description {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Mobile Responsive */
+/* Mobile Responsive Stacking matching Student Login UI */
 @media (max-width: 820px) {
     #login-screen .login-card-split {
         flex-direction: column;
         min-height: auto;
+        border-radius: 24px;
+        overflow: hidden;
     }
     #login-screen .auth-brand-panel {
-        padding: 24px 20px 16px;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+        padding: 28px 22px 20px;
+        min-height: auto;
     }
     #login-screen .auth-brand-logo-row {
         justify-content: center;
+        margin-bottom: 8px;
+    }
+    #login-screen .auth-brand-logo {
+        width: 38px;
+        height: 38px;
+    }
+    #login-screen .auth-brand-title {
+        font-size: 24px;
+    }
+    #login-screen .auth-brand-tagline {
+        font-size: 19px;
+        margin-bottom: 6px;
+    }
+    #login-screen .auth-brand-features {
+        font-size: 11px;
+        margin-bottom: 10px;
+    }
+    #login-screen .auth-brand-description {
+        display: none !important;
+    }
+    #login-screen .auth-brand-mascot-wrap {
+        width: 100%;
+        height: auto;
+        margin: 6px 0;
+        display: flex;
+        justify-content: center;
     }
     #login-screen .auth-brand-mascot {
-        max-width: 140px;
+        max-width: 130px;
+        width: 100%;
+        height: auto;
     }
     #login-screen .auth-form-panel {
-        padding: 24px 20px;
+        padding: 26px 22px 26px;
+        min-height: auto;
+        justify-content: flex-start;
+    }
+    #login-screen .auth-form-header-bar {
+        margin-bottom: 12px;
+    }
+    #login-screen .auth-form-panel .header {
+        margin-bottom: 20px;
+    }
+    #login-screen .auth-form-panel .header h1 {
+        font-size: 22px;
+        margin-bottom: 6px;
+    }
+    #login-screen .auth-form-panel .header p {
+        font-size: 13.5px;
+    }
+    #login-screen .login-tabs {
+        margin-bottom: 20px;
+        padding: 5px;
+    }
+    #login-screen .login-tabs .tab-btn {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+    #login-screen .btn-google,
+    #login-screen .btn-primary {
+        height: 48px;
+        font-size: 15px;
     }
 }
 
