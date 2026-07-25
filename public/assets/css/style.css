@@ -987,19 +987,13 @@
             transition: all 0.3s ease;
         }
 
-        /* Remove container spacing when workspace screen is active */
-        .container:has(#workspace-screen.active) {
+        /* Remove container spacing when workspace or login screen is active */
+        .container:has(#workspace-screen.active),
+        .container:has(#login-screen.active) {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
             padding: 0 !important;
             max-width: 100% !important;
-        }
-
-        /* Expand container when login screen is active on desktop */
-        .container:has(#login-screen.active) {
-            max-width: 1300px;
-            padding: 0 24px;
-            margin-top: 76px;
         }
 
         @media (max-width: 768px) {
@@ -4156,8 +4150,13 @@
    ===================================================== */
 #login-screen {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 0;
 }
 
@@ -4165,11 +4164,12 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    min-height: 540px;
-    border-radius: 28px;
-    border: 1px solid var(--border-color);
+    flex: 1;
+    min-height: calc(100vh - 80px);
+    border-radius: 0;
+    border: none;
     background: var(--card-bg);
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.14), 0 8px 24px rgba(0, 0, 0, 0.06);
+    box-shadow: none;
     overflow: hidden;
     padding: 0 !important;
     max-width: 100% !important;
