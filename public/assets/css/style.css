@@ -1227,6 +1227,13 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
         }
 
+        /* Top bar pinned above the login card */
+        .login-screen-topbar {
+            width: 100%;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+        }
 
 
         .logo {

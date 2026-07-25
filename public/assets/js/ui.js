@@ -68,7 +68,9 @@ function showScreen(screenId) {
             landingPage.classList.toggle('is-hidden', !isAuthScreen);
             if (isAuthScreen) {
                 const showLandingTop = consumeLandingTopLaunchRequest();
-                if ((isNative || localStorage.getItem('attenmo_skip_landing') === 'true') && !showLandingTop) {
+                // Always lock the landing page when navigating to workspace-screen
+                // (user is already in app, no need to show landing/marketing page)
+                if (screenId === 'workspace-screen' || (isNative || localStorage.getItem('attenmo_skip_landing') === 'true') && !showLandingTop) {
                     landingPage.classList.add('login-locked');
                 } else {
                     document.body.classList.remove('native-login-active');
