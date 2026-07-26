@@ -44,7 +44,7 @@ body {
     background: var(--bg-gradient);
     color: var(--text);
     min-height: 100vh;
-    padding: 40px 20px;
+    padding: clamp(16px, 3vw, 40px);
     /* No body transition — prevents full-page repaint lag on theme toggle */
     line-height: 1.7;
     display: flex;
@@ -53,15 +53,18 @@ body {
 }
 
 .container {
-    max-width: 900px;
-    width: 100%;
+    max-width: 1400px;
+    width: clamp(320px, 96vw, 1400px);
     margin: 0 auto;
     background: var(--card-bg);
-    border-radius: 16px;
-    padding: 45px;
+    border-radius: 20px;
+    padding: clamp(24px, 4vw, 50px);
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
     transition: border-color 0.25s, box-shadow 0.25s;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header layout inside subpages */
@@ -905,7 +908,7 @@ footer {
     border-top: 1px solid var(--border);
     text-align: center;
     width: 100%;
-    max-width: 900px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     transition: border-color 0.3s ease;
