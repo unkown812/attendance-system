@@ -253,7 +253,13 @@
         <div id="workspace-screen" class="screen">
             <!-- Top nav bar — same as login screen -->
             <div class="login-screen-topbar">
-                <button class="home-nav-btn" onclick="toggleNavDrawer()" aria-label="Menu">☰ &nbsp;Menu</button>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <button class="hamburger-btn" onclick="toggleNavDrawer()" title="Menu"
+                        aria-label="Open navigation menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                    <button class="home-nav-btn" onclick="toggleNavDrawer()" aria-label="Menu">☰&nbsp; Menu</button>
+                </div>
                 <button class="theme-btn" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode"></button>
             </div>
             <div class="workspace-shell">
@@ -320,7 +326,13 @@
         <div id="login-screen" class="screen">
             <!-- Top nav bar — always visible above the card -->
             <div class="login-screen-topbar">
-                <button class="home-nav-btn" onclick="showScreen('workspace-screen')">🏠 Main App</button>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <button class="hamburger-btn" onclick="toggleNavDrawer()" title="Menu"
+                        aria-label="Open navigation menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                    <button class="home-nav-btn" onclick="showScreen('workspace-screen')">🏠 Main App</button>
+                </div>
                 <button class="theme-btn" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode"></button>
             </div>
             <div class="login-card-split">
