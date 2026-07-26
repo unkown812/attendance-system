@@ -1252,6 +1252,18 @@
             justify-content: space-between;
         }
 
+        .topbar-brand {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-color);
+            letter-spacing: -0.3px;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
 
         .logo {
             width: 100px;

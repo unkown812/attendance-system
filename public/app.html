@@ -253,12 +253,12 @@
         <div id="workspace-screen" class="screen">
             <!-- Top nav bar — same as login screen -->
             <div class="login-screen-topbar">
-                <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
                     <button class="hamburger-btn" onclick="toggleNavDrawer()" title="Menu"
                         aria-label="Open navigation menu">
                         <span></span><span></span><span></span>
                     </button>
-                    <button class="home-nav-btn" onclick="toggleNavDrawer()" aria-label="Menu">☰&nbsp; Menu</button>
+                    <span class="topbar-brand" onclick="toggleNavDrawer()">AttenMo</span>
                 </div>
                 <button class="theme-btn" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode"></button>
             </div>
@@ -326,11 +326,12 @@
         <div id="login-screen" class="screen">
             <!-- Top nav bar — always visible above the card -->
             <div class="login-screen-topbar">
-                <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
                     <button class="hamburger-btn" onclick="toggleNavDrawer()" title="Menu"
                         aria-label="Open navigation menu">
                         <span></span><span></span><span></span>
                     </button>
+                    <span class="topbar-brand" onclick="showScreen('workspace-screen')">AttenMo</span>
                     <button class="home-nav-btn" onclick="showScreen('workspace-screen')">🏠 Main App</button>
                 </div>
                 <button class="theme-btn" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode"></button>
