@@ -993,13 +993,23 @@
             margin-bottom: 0 !important;
             padding: 0 !important;
             max-width: 100% !important;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Expand container when login screen is active on desktop */
         .container:has(#login-screen.active) {
-            max-width: 1300px;
-            padding: 0 24px;
+            max-width: 1440px;
+            width: 100%;
+            padding: 0 32px;
             margin-top: 76px;
+            margin-bottom: 24px;
+            min-height: calc(100vh - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         @media (max-width: 768px) {
@@ -2899,9 +2909,9 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            max-width: 820px;
+            max-width: 1380px;
             box-sizing: border-box;
-            padding: 0;
+            padding: 0 24px;
             margin: 0 auto;
         }
         .workspace-shell {
@@ -4168,7 +4178,7 @@
    ===================================================== */
 #login-screen {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1380px;
     margin: 0 auto;
     padding: 0;
 }
@@ -4177,7 +4187,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    min-height: 540px;
+    min-height: clamp(540px, 72vh, 760px);
     border-radius: 28px;
     border: 1px solid var(--border-color);
     background: var(--card-bg);
