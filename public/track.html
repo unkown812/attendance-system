@@ -58,9 +58,20 @@
     <style>
         /* Extra custom styling for Student Tracker Dashboard */
         .portal-container {
-            max-width: 1050px;
+            max-width: 1440px;
             margin: 0 auto;
             width: 100%;
+        }
+
+        @media (min-width: 992px) {
+            .portal-container:has(#portal-auth-card:not([style*="display: none"])) {
+                min-height: calc(100vh - 100px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 76px;
+                margin-bottom: 24px;
+            }
         }
 
         .calendar-section {
@@ -92,11 +103,12 @@
 
         /* ====== SPLIT PANEL LOGIN CARD ====== */
         .login-card {
-            max-width: 960px;
-            margin: 20px auto;
+            max-width: 1380px;
+            width: 100%;
+            margin: 0 auto;
             padding: 0;
             display: flex;
-            min-height: 540px;
+            min-height: clamp(540px, 72vh, 760px);
             overflow: hidden;
             border-radius: 24px;
             border: 1px solid var(--border-color);
