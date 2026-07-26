@@ -6,12 +6,12 @@ i  database: checking rules syntax...
 ✔  database: rules syntax for database firstfile-c763521e-default-rtdb is valid
 i  hosting[attenmo]: beginning deploy...
 i  hosting[attenmo]: found 37 files in public
-i  hosting: uploading new files [0/1] (0%)
+i  hosting: uploading new files [0/3] (0%)
 i  hosting: upload complete
 ✔  hosting[attenmo]: file upload complete
 i  hosting[firstfile-c763521e]: beginning deploy...
 i  hosting[firstfile-c763521e]: found 37 files in public
-i  hosting: uploading new files [0/1] (0%)
+i  hosting: uploading new files [0/3] (0%)
 i  hosting: upload complete
 ✔  hosting[firstfile-c763521e]: file upload complete
 i  database: releasing rules...
