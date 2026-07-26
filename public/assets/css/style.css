@@ -4210,7 +4210,7 @@
     gap: 28px;
     position: relative;
     overflow: hidden;
-    text-align: left;
+    text-align: center;
     border-right: 1px solid rgba(0, 0, 0, 0.06);
     transition: background 0.3s ease;
 }
@@ -4223,6 +4223,7 @@ body.dark-mode #login-screen .auth-brand-panel {
 #login-screen .auth-brand-logo-row {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     margin-bottom: 24px;
 }

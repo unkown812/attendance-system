@@ -22,19 +22,39 @@
       "headers": [
         {
           "source": "service-worker.js",
-          "headers": [{"key": "Cache-Control", "value": "no-cache, no-store, must-revalidate"}]
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            }
+          ]
         },
         {
           "source": "**/*.@(webp|png|jpg|jpeg|svg|ico|gif)",
-          "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
         },
         {
           "source": "**/*.@(css|js)",
-          "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
         },
         {
           "source": "**/*.@(html)",
-          "headers": [{"key": "Cache-Control", "value": "no-cache, no-store, must-revalidate"}]
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            }
+          ]
         }
       ],
       "rewrites": [
@@ -70,19 +90,39 @@
       "headers": [
         {
           "source": "service-worker.js",
-          "headers": [{"key": "Cache-Control", "value": "no-cache, no-store, must-revalidate"}]
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            }
+          ]
         },
         {
           "source": "**/*.@(webp|png|jpg|jpeg|svg|ico|gif)",
-          "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
         },
         {
           "source": "**/*.@(css|js)",
-          "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
         },
         {
           "source": "**/*.@(html)",
-          "headers": [{"key": "Cache-Control", "value": "no-cache, no-store, must-revalidate"}]
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            }
+          ]
         }
       ],
       "rewrites": [
@@ -112,5 +152,10 @@
         "*.local"
       ]
     }
-  ]
+  ],
+  "auth": {
+    "providers": {
+      "anonymous": true
+    }
+  }
 }

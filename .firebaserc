@@ -1,5 +1,7 @@
 {
   "projects": {
     "default": "firstfile-c763521e"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }
