@@ -1,14 +1,14 @@
 Syncing assets to Android platform...
-✔ Copying web assets from public to android/app/src/main/assets/public in 9.09ms
-✔ Creating capacitor.config.json in android/app/src/main/assets in 810.62μs
-✔ copy android in 14.72ms
-✔ Updating Android plugins in 413.73μs
+✔ Copying web assets from public to android/app/src/main/assets/public in 10.65ms
+✔ Creating capacitor.config.json in android/app/src/main/assets in 786.08μs
+✔ copy android in 16.48ms
+✔ Updating Android plugins in 349.45μs
 [info] Found 3 Capacitor plugins for android:
        @capacitor/app@8.1.0
        @capacitor/local-notifications@8.2.0
        @capacitor/push-notifications@8.1.1
-✔ update android in 30.98ms
-[info] Sync finished in 0.054s
+✔ update android in 24.79ms
+[info] Sync finished in 0.05s
 Building APK...
 
 > Configure project :app
@@ -77,12 +77,12 @@ WARNING: Using flatDir should be avoided because it doesn't support any meta-dat
 > Task :capacitor-local-notifications:processDebugManifest UP-TO-DATE
 > Task :capacitor-push-notifications:extractDeepLinksDebug UP-TO-DATE
 > Task :capacitor-push-notifications:processDebugManifest UP-TO-DATE
-> Task :capacitor-android:compileDebugLibraryResources UP-TO-DATE
 > Task :capacitor-cordova-android-plugins:processDebugManifest
-> Task :capacitor-android:parseDebugLocalResources UP-TO-DATE
 > Task :app:processDebugMainManifest UP-TO-DATE
 > Task :app:processDebugManifest UP-TO-DATE
 > Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :capacitor-android:compileDebugLibraryResources UP-TO-DATE
+> Task :capacitor-android:parseDebugLocalResources UP-TO-DATE
 > Task :capacitor-android:generateDebugRFile UP-TO-DATE
 > Task :capacitor-app:compileDebugLibraryResources UP-TO-DATE
 > Task :capacitor-app:parseDebugLocalResources UP-TO-DATE
@@ -91,20 +91,20 @@ WARNING: Using flatDir should be avoided because it doesn't support any meta-dat
 > Task :capacitor-local-notifications:compileDebugLibraryResources UP-TO-DATE
 > Task :capacitor-local-notifications:parseDebugLocalResources UP-TO-DATE
 > Task :capacitor-local-notifications:generateDebugRFile UP-TO-DATE
-> Task :capacitor-push-notifications:compileDebugLibraryResources UP-TO-DATE
 > Task :capacitor-cordova-android-plugins:parseDebugLocalResources
+> Task :capacitor-push-notifications:compileDebugLibraryResources UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:generateDebugRFile
 > Task :capacitor-push-notifications:parseDebugLocalResources UP-TO-DATE
 > Task :capacitor-push-notifications:generateDebugRFile UP-TO-DATE
-> Task :capacitor-android:javaPreCompileDebug UP-TO-DATE
-> Task :capacitor-cordova-android-plugins:generateDebugRFile
-> Task :capacitor-android:compileDebugJavaWithJavac UP-TO-DATE
 > Task :app:processDebugResources UP-TO-DATE
+> Task :capacitor-android:javaPreCompileDebug UP-TO-DATE
+> Task :capacitor-android:compileDebugJavaWithJavac UP-TO-DATE
 > Task :capacitor-android:bundleLibCompileToJarDebug UP-TO-DATE
 > Task :capacitor-app:javaPreCompileDebug UP-TO-DATE
 > Task :capacitor-app:compileDebugJavaWithJavac UP-TO-DATE
 > Task :capacitor-app:bundleLibCompileToJarDebug UP-TO-DATE
-> Task :capacitor-local-notifications:javaPreCompileDebug UP-TO-DATE
 > Task :capacitor-cordova-android-plugins:javaPreCompileDebug
+> Task :capacitor-local-notifications:javaPreCompileDebug UP-TO-DATE
 > Task :capacitor-cordova-android-plugins:compileDebugJavaWithJavac NO-SOURCE
 > Task :capacitor-cordova-android-plugins:bundleLibCompileToJarDebug
 > Task :capacitor-local-notifications:compileDebugJavaWithJavac UP-TO-DATE
@@ -141,8 +141,8 @@ WARNING: Using flatDir should be avoided because it doesn't support any meta-dat
 > Task :capacitor-local-notifications:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :capacitor-push-notifications:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :capacitor-android:bundleLibRuntimeToJarDebug UP-TO-DATE
-> Task :app:desugarDebugFileDependencies UP-TO-DATE
 > Task :capacitor-cordova-android-plugins:bundleLibRuntimeToJarDebug
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
 > Task :app:dexBuilderDebug UP-TO-DATE
 > Task :app:processDebugJavaRes NO-SOURCE
 > Task :capacitor-android:processDebugJavaRes NO-SOURCE
@@ -165,14 +165,14 @@ WARNING: Using flatDir should be avoided because it doesn't support any meta-dat
 > Task :capacitor-android:mergeDebugJniLibFolders UP-TO-DATE
 > Task :capacitor-android:mergeDebugNativeLibs NO-SOURCE
 > Task :capacitor-android:copyDebugJniLibsProjectOnly UP-TO-DATE
-> Task :app:mergeLibDexDebug UP-TO-DATE
 > Task :capacitor-app:mergeDebugJniLibFolders UP-TO-DATE
 > Task :capacitor-app:mergeDebugNativeLibs NO-SOURCE
 > Task :capacitor-app:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
 > Task :capacitor-cordova-android-plugins:mergeDebugJniLibFolders
 > Task :capacitor-cordova-android-plugins:mergeDebugNativeLibs NO-SOURCE
-> Task :capacitor-cordova-android-plugins:copyDebugJniLibsProjectOnly
 > Task :capacitor-local-notifications:mergeDebugJniLibFolders UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:copyDebugJniLibsProjectOnly
 > Task :capacitor-local-notifications:mergeDebugNativeLibs NO-SOURCE
 > Task :capacitor-local-notifications:copyDebugJniLibsProjectOnly UP-TO-DATE
 > Task :capacitor-push-notifications:mergeDebugJniLibFolders UP-TO-DATE
@@ -210,21 +210,21 @@ WARNING: Using flatDir should be avoided because it doesn't support any meta-dat
 > Task :capacitor-app:bundleDebugAar UP-TO-DATE
 > Task :capacitor-app:assembleDebug UP-TO-DATE
 > Task :capacitor-cordova-android-plugins:stripDebugDebugSymbols NO-SOURCE
-> Task :capacitor-cordova-android-plugins:checkDebugAarMetadata
 > Task :capacitor-cordova-android-plugins:copyDebugJniLibsProjectAndLocalJars
+> Task :capacitor-cordova-android-plugins:checkDebugAarMetadata
 > Task :capacitor-cordova-android-plugins:extractDebugAnnotations
 > Task :capacitor-cordova-android-plugins:extractDeepLinksForAarDebug UP-TO-DATE
 > Task :capacitor-cordova-android-plugins:mergeDebugGeneratedProguardFiles UP-TO-DATE
 > Task :capacitor-cordova-android-plugins:mergeDebugConsumerProguardFiles UP-TO-DATE
 > Task :capacitor-cordova-android-plugins:prepareDebugArtProfile UP-TO-DATE
 > Task :capacitor-cordova-android-plugins:prepareLintJarForPublish UP-TO-DATE
-> Task :capacitor-local-notifications:checkDebugAarMetadata UP-TO-DATE
-> Task :capacitor-local-notifications:stripDebugDebugSymbols NO-SOURCE
 > Task :capacitor-cordova-android-plugins:mergeDebugJavaResource
-> Task :capacitor-local-notifications:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :capacitor-local-notifications:checkDebugAarMetadata UP-TO-DATE
 > Task :capacitor-cordova-android-plugins:syncDebugLibJars
 > Task :capacitor-cordova-android-plugins:bundleDebugAar
 > Task :capacitor-cordova-android-plugins:assembleDebug
+> Task :capacitor-local-notifications:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-local-notifications:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
 > Task :capacitor-local-notifications:extractDebugAnnotations UP-TO-DATE
 > Task :capacitor-local-notifications:extractDeepLinksForAarDebug UP-TO-DATE
 > Task :capacitor-local-notifications:mergeDebugGeneratedProguardFiles UP-TO-DATE
