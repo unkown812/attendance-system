@@ -63,15 +63,15 @@
             width: 100%;
         }
 
-        @media (min-width: 992px) {
-            .portal-container:has(#portal-auth-card:not([style*="display: none"])) {
-                min-height: 100vh;
-                display: flex;
-                align-items: stretch;
-                justify-content: stretch;
-                margin-top: 0;
-                margin-bottom: 0;
-            }
+        .portal-container:has(#portal-auth-card:not([style*="display: none"])) {
+            min-height: 100vh;
+            display: flex;
+            align-items: stretch;
+            justify-content: stretch;
+            margin: 0 !important;
+            padding: 0 !important;
+            max-width: 100% !important;
+            width: 100% !important;
         }
 
         .calendar-section {
