@@ -93,7 +93,7 @@
         /* ====== SPLIT PANEL LOGIN CARD ====== */
         .login-card {
             max-width: 960px;
-            margin: 40px auto;
+            margin: 20px auto;
             padding: 0;
             display: flex;
             min-height: 540px;
@@ -995,7 +995,8 @@
             .logout-btn,
             .btn,
             .log-filters,
-            .header-controls {
+            .header-controls,
+            .login-screen-topbar {
                 display: none !important;
             }
 
@@ -1389,25 +1390,25 @@
     </div>
     <div id="nav-drawer-overlay" class="nav-drawer-overlay" onclick="toggleNavDrawer()"></div>
 
-    <div class="container portal-container">
-        <!-- HEADER CONTROLS -->
-        <div class="header-controls">
-            <div class="header-controls-left">
-                <button class="hamburger-btn" onclick="toggleNavDrawer()" title="Menu"
-                    aria-label="Open navigation menu">
-                    <span></span><span></span><span></span>
-                </button>
-                <button class="home-nav-btn" onclick="window.location.href='app.html'">🏠 Main App</button>
-            </div>
-            <div class="header-controls-right">
-
-                <button class="theme-btn" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode"></button>
-                <button class="logout-btn" id="portal-logout-btn" onclick="exitPortal()"
-                    style="display: none;">Logout</button>
-            </div>
+    <!-- UNIFIED TOP NAV BAR — fixed, full-width (matches app.html pattern) -->
+    <div class="login-screen-topbar">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <button class="hamburger-btn" onclick="toggleNavDrawer()" title="Menu"
+                aria-label="Open navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <button class="home-nav-btn" onclick="window.location.href='app.html'">🏠 Main App</button>
         </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <button class="logout-btn" id="portal-logout-btn" onclick="exitPortal()"
+                style="display: none;">Logout</button>
+            <button class="theme-btn" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode"></button>
+        </div>
+    </div>
 
-        <!-- Header is now embedded in the brand panel; hide old header when login card is shown -->
+    <div class="container portal-container" style="margin-top: 72px;">
+
+        <!-- Header shown when dashboard is active -->
         <div class="header" id="portal-main-header" style="display: none;">
             <img src="logo.webp" alt="AttenMo Logo" class="logo" loading="lazy">
             <h1>🎓 <span class="brand-text">Student Portal</span></h1>
