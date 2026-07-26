@@ -456,9 +456,9 @@
                 <a href="QR Attendance System - Complete User Manual.pdf" download
                     style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.2); color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; border: 1px solid rgba(255,255,255,0.3);">⬇️
                     Download PDF</a>
-                <a href="index.html"
+                <a href="#" onclick="goBack(); return false;"
                     style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.15); color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; border: 1px solid rgba(255,255,255,0.3);">←
-                    Back to App</a>
+                    Back</a>
                 <button id="theme-toggle-btn" data-style="text" onclick="toggleDarkMode()"
                     style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s ease;">🌙
                     Dark Mode</button>
@@ -919,7 +919,7 @@
         <div class="manual-footer">
             <p>© 2026 <strong>AttenMo</strong> · Developed by Shivam Kumar Mahto · All rights reserved</p>
             <p class="no-print" style="margin-top: 6px;">
-                <a href="index.html" style="color: #667eea; text-decoration: none; font-weight: 600;">← Back to App</a>
+                <a href="#" onclick="goBack(); return false;" style="color: #667eea; text-decoration: none; font-weight: 600;">← Back</a>
                 &nbsp;·&nbsp;
                 <a href="contact.html" style="color: #667eea; text-decoration: none; font-weight: 600;">Contact
                     Support</a>
@@ -932,6 +932,18 @@
         </div>
 
     </div>
+    <script>
+        function goBack() {
+            var ref = document.referrer;
+            if (ref && ref.includes('app.html')) {
+                window.location.href = 'app.html';
+            } else if (ref && ref !== window.location.href) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
 </body>
 
 </html>
